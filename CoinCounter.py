@@ -20,10 +20,11 @@ close = cv2.morphologyEx(canny, cv2.MORPH_CLOSE, kernel)
 contours, hierarchy = cv2.findContours(close.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
 print("coints: {}" .format(len(contours)))
-cv2.drawContours(close)
+cv2.drawContours(original, contours, -1, (0, 0, 255), 3)
 # Open result image
 cv2.imshow('image grey', gray)
 cv2.imshow('Gauss', blur)
 cv2.imshow('Canny', canny)
 cv2.imshow('MORPH_CLOSE', close)
+cv2.imshow('original', original)
 cv2.waitKey(0)
